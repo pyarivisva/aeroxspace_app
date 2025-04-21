@@ -10,7 +10,6 @@ class DetailScreen extends StatefulWidget {
 }
 
 class DetailScreenState extends State<DetailScreen> {
-  // String _search = "";
   String review = "";
   String? ask;
 
@@ -23,6 +22,7 @@ class DetailScreenState extends State<DetailScreen> {
         title: const Text(
           "TourAja",
           style: TextStyle(
+            // Font
             fontFamily: "SofiaSans",
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -40,9 +40,7 @@ class DetailScreenState extends State<DetailScreen> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
-            onPressed: () {
-              // showSearch(context: context, delegate: MySearchDelegate());
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -80,10 +78,12 @@ class DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                     // jarak
-                    const SizedBox(width: 30),
+                    const SizedBox(width: 80),
+
                     // Icon Rating
                     RatingBarIndicator(
                       rating: 4.5,
+                      // Fungsi itemBuilder
                       itemBuilder:
                           (context, index) =>
                               const Icon(Icons.star, color: Colors.amber),
@@ -100,8 +100,6 @@ class DetailScreenState extends State<DetailScreen> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(width: 1),
-                    // jarak icon dan teks : 1
                   ],
                 ),
               ),
@@ -109,7 +107,7 @@ class DetailScreenState extends State<DetailScreen> {
               // Lokasi
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 15.0,
+                  horizontal: 16.0,
                   vertical: 1.0,
                 ),
                 child: Row(
@@ -186,34 +184,39 @@ class DetailScreenState extends State<DetailScreen> {
                 ),
               ),
 
-              // Deskripsi Heading
+              // Deskripsi
               Container(
                 margin: const EdgeInsets.symmetric(
-                  horizontal: 15.0,
+                  horizontal: 16.0,
+                  vertical: 2.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Description",
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    SizedBox(height: 8.0),
+
+                    const Text(
+                      'Designed to inspire all ages to disconnect from their devices and improve their wellbeing and mental health through adrenaline-pumping activities. AeroXSpace is committed to creating the most exciting, imaginative, and fun family experience in Bali. Strategically located on Bali’s main artery bypass near the iconic Sanur neighborhood, AeroXSpace is a fully air-conditioned space-themed adventure park spans over 3,500 square meters and is located within a 6,000 square meter plot, with parking for up to 77 vehicles. Packed with 26 exhilarating multilevel attractions — some of which are the first in Indonesia — and adhering to the highest international safety codes.',
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                  ],
+                ),
+              ),
+
+              // Heading Similar Experiences
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
                   vertical: 15.0,
-                ),
-                child: Text(
-                  "Description",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-              ),
-
-              // Penjelasan Deskripsi
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: const Text(
-                  'Designed to inspire all ages to disconnect from their devices and improve their wellbeing and mental health through adrenaline-pumping activities. AeroXSpace is committed to creating the most exciting, imaginative, and fun family experience in Bali. Strategically located on Bali’s main artery bypass near the iconic Sanur neighborhood, AeroXSpace is a fully air-conditioned space-themed adventure park spans over 3,500 square meters and is located within a 6,000 square meter plot, with parking for up to 77 vehicles. Packed with 26 exhilarating multilevel attractions — some of which are the first in Indonesia — and adhering to the highest international safety codes.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 15.0),
-                ),
-              ),
-
-              // "Similar Experiences" Heading
-              Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 15.0,
-                  vertical: 20.0,
                 ),
                 child: Text(
                   "Similar Experiences",
@@ -264,20 +267,16 @@ class DetailScreenState extends State<DetailScreen> {
                                         ),
                                       ),
                                       SizedBox(height: 4),
-                                      Row(
-                                        children: [
-                                          RatingBarIndicator(
-                                            rating: 4.7,
-                                            itemBuilder:
-                                                (context, index) => const Icon(
-                                                  Icons.star,
-                                                  color: Colors.amber,
-                                                ),
-                                            itemCount: 5,
-                                            itemSize: 10.0,
-                                            direction: Axis.horizontal,
-                                          ),
-                                        ],
+                                      RatingBarIndicator(
+                                        rating: 4.7,
+                                        itemBuilder:
+                                            (context, index) => const Icon(
+                                              Icons.star,
+                                              color: Colors.amber,
+                                            ),
+                                        itemCount: 5,
+                                        itemSize: 10.0,
+                                        direction: Axis.horizontal,
                                       ),
                                       SizedBox(height: 4),
                                       Row(
@@ -597,7 +596,7 @@ class DetailScreenState extends State<DetailScreen> {
               // Write review heading
               Container(
                 margin: const EdgeInsets.symmetric(
-                  horizontal: 15.0,
+                  horizontal: 16.0,
                   vertical: 15.0,
                 ),
                 child: Text(
@@ -629,41 +628,33 @@ class DetailScreenState extends State<DetailScreen> {
               // Review
               Container(
                 margin: const EdgeInsets.symmetric(
-                  horizontal: 15.0,
+                  horizontal: 16.0,
                   vertical: 10.0,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: "Write your review...",
-                              labelText: "Review",
-                            ),
-                            onChanged: (String value) {
-                              setState(() {
-                                review = value;
-                              });
-                            },
-                          ),
-                        ),
-                      ],
+                    TextField(
+                      decoration: InputDecoration(
+                        hintText: "Write your review...",
+                        labelText: "Review",
+                      ),
+                      onChanged: (String value) {
+                        setState(() {
+                          review = value;
+                        });
+                      },
                     ),
 
                     SizedBox(height: 30),
 
                     // Teks pertanyaan
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Would you recommend this place to your friends?",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      ],
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Would you recommend this place to your friends?",
+                        style: TextStyle(fontSize: 15),
+                      ),
                     ),
 
                     // Radio
@@ -686,7 +677,7 @@ class DetailScreenState extends State<DetailScreen> {
                                 const Text("Yes"),
                               ],
                             ),
-                            SizedBox(width: 20), // Jarak antar opsi
+                            SizedBox(width: 20),
                             Row(
                               children: [
                                 Radio<String>(
