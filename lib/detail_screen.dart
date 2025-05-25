@@ -33,14 +33,18 @@ class DetailScreenState extends State<DetailScreen> {
         // Menu
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            // Aksi
+          },
         ),
 
         // Search bar
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.search, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              // Aksi
+            },
           ),
         ],
       ),
@@ -123,7 +127,7 @@ class DetailScreenState extends State<DetailScreen> {
                     const SizedBox(width: 5),
 
                     // Lokasi
-                    const Text(
+                    Text(
                       "Jl. Bypass Ngurah Rai No.999, Denpasar, Bali",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -203,7 +207,7 @@ class DetailScreenState extends State<DetailScreen> {
 
                     SizedBox(height: 8.0),
 
-                    const Text(
+                    Text(
                       'Designed to inspire all ages to disconnect from their devices and improve their wellbeing and mental health through adrenaline-pumping activities. AeroXSpace is committed to creating the most exciting, imaginative, and fun family experience in Bali. Strategically located on Bali’s main artery bypass near the iconic Sanur neighborhood, AeroXSpace is a fully air-conditioned space-themed adventure park spans over 3,500 square meters and is located within a 6,000 square meter plot, with parking for up to 77 vehicles. Packed with 26 exhilarating multilevel attractions — some of which are the first in Indonesia — and adhering to the highest international safety codes.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 15.0),
